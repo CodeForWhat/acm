@@ -44,6 +44,7 @@ public class LongestPalindromicSubstring {
 
 
 // implementation of manacher algorithm
+// http://www.61mon.com/index.php/archives/181/
 class Manacher {
 	public String longestPalindrome(String s) {
 		// preprocess
