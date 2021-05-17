@@ -35,7 +35,41 @@ public class Problem05 {
         return new String(s.toCharArray(), 0, 1);
     }
 
+
+
+    public static String longestPalindrome2(String s) {
+        boolean[][] p = new boolean[s.length()][s.length()];
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            for (int j = i; j < s.length(); j++) {
+                if (i == j) {
+                    p[i][j] = true;
+                } else {
+                    boolean b = s.charAt(i) == s.charAt(j);
+                    if (j == i + 1) {
+                        p[i][j] = b;
+                    } else {
+                        p[i][j] = p[i + 1][j - 1] & b;
+                    }
+                }
+            }
+        }
+
+        int maxLength = 0, left = 0, right = 0;
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i; j < s.length(); j++) {
+                if (p[i][j] && (j - i + 1) > maxLength) {
+                    maxLength = j - i + 1;
+                    left = i;
+                    right = j;
+                }
+            }
+        }
+
+        return new String(s.toCharArray(), left, right - left + 1);
+    }
+
     public static void main(String[] args) {
-        System.out.println(longestPalindrome("ac"));
+        System.out.println(longestPalindrome2("babad"));
     }
 }
