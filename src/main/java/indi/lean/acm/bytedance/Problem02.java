@@ -1,22 +1,11 @@
 package indi.lean.acm.bytedance;
 
+import indi.lean.acm.common.ListNode;
+
+import static indi.lean.acm.common.ListNodeFactory.createListNodes;
+import static indi.lean.acm.common.ListNodeFactory.printListNodes;
+
 public class Problem02 {
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode result = null;
@@ -72,26 +61,4 @@ public class Problem02 {
         printListNodes(listNode);
     }
 
-    private static void printListNodes(ListNode node) {
-        while (node != null) {
-            System.out.print(node.val + ",");
-            node = node.next;
-        }
-    }
-
-    private static ListNode createListNodes(int[] array1) {
-        ListNode result = null;
-        ListNode cursor = null;
-        for (int i : array1) {
-
-            if (cursor == null) {
-                cursor = new ListNode(i, null);
-                result = cursor;
-            } else {
-                cursor.next = new ListNode(i, null);
-                cursor = cursor.next;
-            }
-        }
-        return result;
-    }
 }
