@@ -1,7 +1,5 @@
 package indi.lean.acm.dp;
 
-import com.sun.tools.javac.code.Attribute;
-
 public class Problem303 {
 
 }
